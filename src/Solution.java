@@ -6,13 +6,15 @@ public class Solution {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String line = scanner.nextLine().trim();
-        String[] words = line.split("\\s+");
+        String line = scanner.nextLine();
+        String[] words = line.trim().split("\\s+");
 
         HashMap<String, Integer> map = new HashMap<>();
 
         for (String word : words) {
-            map.put(word, map.getOrDefault(word, 0) + 1);
+            if (!word.isEmpty()) {
+                map.put(word, map.getOrDefault(word, 0) + 1);
+            }
         }
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
